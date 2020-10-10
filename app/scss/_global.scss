@@ -1,0 +1,96 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    overflow-x: hidden;
+
+    background-color: #0E0E0E;
+    background-image: url("../img/bg.jpg");
+    background-repeat: repeat;
+    background-size: 300px 300px;
+
+    color: #ffffff;
+    font-family: 'bebas';
+    font-weight: normal;
+    font-size: 20px;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none; 
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-size: inherit;
+}
+
+.container {
+    max-width: 1090px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 48px;
+    text-align: center;
+
+    &::after  {
+        content: "";
+        display: block;
+        width: 180px;
+        height: 3px;
+        margin: 0 auto;
+
+        background-color: $main;
+    }
+}
+
+.subtitle {
+    font-size: 30px;
+    &::after {
+        content: '';
+        display: block;
+        height: 3px;
+        background-color: $main;
+
+    }
+}
+
+.btn{
+    padding: 7px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: $btn;
+    color: #fff;
+    cursor: pointer;
+}
+
+.slider {
+    
+    &__img {
+        height: 90vh;
+        width: auto !important;
+    }
+
+}
+

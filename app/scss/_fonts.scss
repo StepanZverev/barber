@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "BebasNeue", sans-serif;
+    src: url("../fonts/BebasNeueReg.woff2") format("woff2"), 
+        url("../fonts/BebasNeueReg.woff") format("woff");
+    font-weight: 400;
+    font-style: normal; 
+    font-display: swap; 
+}
+
+@font-face {
+    font-family: "BebasNeue-light", sans-serif;
+    src: url("../fonts/BebasNeueLight.woff2") format("woff2"),
+        url("../fonts/BebasNeueLight.woff") format("woff");
+    font-weight: 100;
+    font-style: normal; 
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BebasNeue-bold", sans-serif;
+    src: url("../fonts/BebasNeueBold.woff2") format("woff2"),
+        url("../fonts/BebasNeueBold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal; 
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'bebas';
+        
+        src:    url('https://nomail.com.ua/files/eot/e8b9350be099a2096e4438a327e88cc5.eot?#iefix') format('embedded-opentype'),
+                url('https://nomail.com.ua/files/woff/e8b9350be099a2096e4438a327e88cc5.woff') format('woff'),
+                url('https://nomail.com.ua/files/woff2/e8b9350be099a2096e4438a327e88cc5.woff2') format('woff2');
+    }
