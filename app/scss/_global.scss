@@ -84,12 +84,16 @@ h6 {
     }
 }
 
-.btn{
+.btn {
     padding: 7px 20px;
-    border: none;
-    border-radius: 10px;
-    background-color: $btn;
     color: #fff;
     cursor: pointer;
+    background: transparent;
+    border: 5px solid $main;
+    transition: all .3s;
+
+    &:hover {
+        border: 5px dashed #fff;
+    }
 }
 
