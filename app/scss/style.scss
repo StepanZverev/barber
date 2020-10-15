@@ -3,14 +3,40 @@
 @import "libs";
 @import "global";
 
-
-
 .header {
     z-index: 100;
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(17, 11, 2, 0.65);
+    background-color: rgba(17, 11, 2, 0.8);
+    transition: all 0.5s;
+    height: 70px;
+    overflow: hidden;
+
+    &.active {
+        height: 100vh;
+
+        .header__phone {
+            display: none;
+        }
+
+        .header__btn {
+            display: none;
+        }
+
+        .header__cross {
+            display: block;
+
+            &::after {
+                transform: rotate(45deg);
+            }
+            
+            &::before {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
     &__inner {
         display: flex;
         justify-content: space-between;
@@ -33,71 +59,126 @@
     &__phone-icon {
         margin-right: 5px;
     }
-}
+    &__form {
+        margin: 60px auto;
+    }
+    &__cross {
 
-.video {
-    height: 100%;
-    position: relative;
-    &__media {
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
+        display: none;
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        position: relative;
+        cursor: pointer;
+        padding: 10px;
+
+        &::after,&::before {
+            content: '';
+            display: block;
+            position: absolute;
+            background-color: #fff;
+            height: 2px;
+            width: 30px;
+        }
+
+        &::after {
+            transform: rotate(45deg);
+            top: 50%;
+        }
+        &::before {
+            transform: rotate(-45deg);
+            top: 50%;
+        }
+        
     }
 }
 
+.form {
+    position: relative;
+    width: 300px;
+    background: #221505;
+    border: 7px solid $main;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__logo {
+        display: block;
+        width: 160px;
+        margin: 20px auto;
+    }
+
+    &__text {
+        margin-bottom: 20px;
+        color: $main;
+    }
+    &__phone-number {
+        margin-bottom: 20px;
+        text-decoration: underline;
+    }
+    &__btn {
+        padding: 0;
+        margin-bottom: 20px;
+
+        a {
+            display: block;
+            padding: 5px 20px;
+        }
+    }
+}
 
 .intro {
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
     position: relative;
+    background-image: url("../img/bg-image.jpg");
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     &::after {
         content: "";
         display: block;
         width: 100%;
         height: 100%;
-    
+
         background-color: rgba(38, 25, 4, 0.5);
-    
+
         position: absolute;
         top: 0;
-        left: 0;
         z-index: 2;
     }
-    
+
     &__content {
-        position: absolute;
-        top: 0;
-        left: 0;
-    
+        position: relative;
+
         width: 100%;
         height: 100%;
         z-index: 3;
-    
-        padding-bottom: 5%;
-        
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-end;
+
+        padding: 40px 0;
+
         text-align: center;
     }
-    
+
     &__logo {
         display: block;
-        margin: 0 auto 40px;
+        margin: 40px auto;
         width: 200px;
     }
-    
+
     &__text {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
         margin-bottom: 25px;
-    
+
         color: white;
-    
+
         font-weight: 300;
         font-size: 24px;
         line-height: 150%;
@@ -106,13 +187,15 @@
     &__adress {
         color: $main;
     }
-    
-    &__text::after, &__text::before {
+
+    &__text::after,
+    &__text::before {
         content: "";
         display: inline-block;
         background-color: $main;
         height: 2px;
-        width: 600px;
+        width: 100%;
+        max-width: 600px;
     }
     &__btn {
         display: block;
@@ -127,7 +210,8 @@
         padding-top: 70px;
     }
     &__photo {
-        flex: 0 0 300px;
+        min-width: 300px;
+        max-width: 300px;
         border: 5px solid $main;
         margin-right: 40px;
     }
@@ -137,9 +221,10 @@
     }
     &__text {
         flex-grow: 1;
+        padding-bottom: 20px;
         p {
-          margin: 0;
-          margin-bottom: 10px;  
+            margin: 0;
+            margin-bottom: 10px;
         }
     }
     &__subtitle {
@@ -153,31 +238,56 @@
             padding: 0 5px;
         }
     }
+    &__job-logo {
+        max-width: 49%;
+    }
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__link {
+        flex: 1 1 25%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 .services {
+    max-width: 750px;
+    margin: 0 auto;
     padding-top: 70px;
+
     &__inner {
         padding: 70px 0 90px;
     }
     &__list {
-        padding-bottom: 50px;
+        padding-bottom: 80px;
     }
-    &__item{
-        margin-bottom: 15px;
+    &__item {
+        margin-bottom: 25px;
         display: flex;
-        align-items: flex-end;
+        align-items: baseline;
     }
     &__name {
-        font-size: 30px;
+        font-size: 26px;
     }
     &__line {
-        margin: 0 10px;
+        margin: 0 10px 3px;
         flex-grow: 1;
         border-bottom: 3px dotted $main;
     }
     &__price {
-        font-size: 40px;
+        font-size: 34px;
         color: $main;
     }
 }
@@ -186,7 +296,7 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    width: 500px;
+    width: 90%;
     &__line {
         flex-grow: 1;
         height: 3px;
@@ -208,10 +318,12 @@
         display: flex;
     }
     &__map {
-        width: 900px;
+        width: 100% !important;
         margin-right: 30px;
     }
     &__content {
+        min-width: 240px;
+        max-width: 350px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -223,6 +335,7 @@
         margin-bottom: 20px;
     }
     &__phone-number {
+        display: block;
         color: $main;
         margin-bottom: 20px;
     }

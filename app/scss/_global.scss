@@ -5,6 +5,7 @@ html {
 body {
     min-width: 320px;
     overflow-x: hidden;
+    position: relative;
 
     background-color: #0E0E0E;
     background-image: url("../img/bg.jpg");
@@ -12,9 +13,14 @@ body {
     background-size: 300px 300px;
 
     color: #ffffff;
-    font-family: 'bebas';
-    font-weight: normal;
+    font-family: "BebasNeueRegular";
+    font-weight: bold;
     font-size: 20px;
+
+    &.disable {
+        scroll-behavior: none;
+        overflow: hidden;
+    }
 }
 
 *, *::before, *::after {
@@ -52,6 +58,7 @@ h6 {
 
 .title {
     font-size: 48px;
+    letter-spacing: 2px;
     text-align: center;
 
     &::after  {
@@ -67,6 +74,7 @@ h6 {
 
 .subtitle {
     font-size: 30px;
+    letter-spacing: 1px;
     &::after {
         content: '';
         display: block;
@@ -83,14 +91,5 @@ h6 {
     background-color: $btn;
     color: #fff;
     cursor: pointer;
-}
-
-.slider {
-    
-    &__img {
-        height: 90vh;
-        width: auto !important;
-    }
-
 }
 
